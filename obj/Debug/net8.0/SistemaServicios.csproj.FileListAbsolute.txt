@@ -1,0 +1,8 @@
+C:\Users\sebaq\OneDrive\Escritorio\SistemaServicios\SistemaServicios\obj\Debug\net8.0\SistemaServicios.csproj.AssemblyReference.cache
+C:\Users\sebaq\OneDrive\Escritorio\SistemaServicios\SistemaServicios\obj\Debug\net8.0\SistemaServicios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sebaq\OneDrive\Escritorio\SistemaServicios\SistemaServicios\obj\Debug\net8.0\SistemaServicios.AssemblyInfoInputs.cache
+C:\Users\sebaq\OneDrive\Escritorio\SistemaServicios\SistemaServicios\obj\Debug\net8.0\SistemaServicios.AssemblyInfo.cs
+C:\Users\sebaq\OneDrive\Escritorio\SistemaServicios\SistemaServicios\obj\Debug\net8.0\SistemaServicios.csproj.CoreCompileInputs.cache
+C:\Users\sebaq\OneDrive\Escritorio\SistemaServicios\SistemaServicios\obj\Debug\net8.0\SistemaServicios.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sebaq\OneDrive\Escritorio\SistemaServicios\SistemaServicios\obj\Debug\net8.0\SistemaServicios.RazorAssemblyInfo.cache
+C:\Users\sebaq\OneDrive\Escritorio\SistemaServicios\SistemaServicios\obj\Debug\net8.0\SistemaServicios.RazorAssemblyInfo.cs

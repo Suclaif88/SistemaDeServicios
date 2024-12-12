@@ -1,0 +1,28 @@
+﻿@model SistemaServicios.Models.Horario
+
+@{
+    ViewData["Title"] = "Eliminar Horario";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>¿Estás seguro de que deseas eliminar este horario?</h4>
+<hr />
+
+<dl class="dl-horizontal">
+    <dt>Dia</dt>
+    <dd>@Model.Dia</dd>
+    <dt>Hora Inicio</dt>
+    <dd>@Model.HoraInicio</dd>
+    <dt>Hora Fin</dt>
+    <dd>@Model.HoraFin</dd>
+    <dt>Técnico</dt>
+    <dd>@Model.Tecnico.Nombre</dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancelar</a>
+}

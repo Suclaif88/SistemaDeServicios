@@ -1,0 +1,42 @@
+﻿@model SistemaServicios.Models.Horario
+
+@{
+    ViewData["Title"] = "Crear Horario";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Horario</h4>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TecnicoId)
+        @Html.DropDownListFor(model => model.TecnicoId, (SelectList)ViewData["TecnicoId"], "-- Seleccione Técnico --", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.TecnicoId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Dia)
+        @Html.TextBoxFor(model => model.Dia, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Dia)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.HoraInicio)
+        @Html.TextBoxFor(model => model.HoraInicio, new { @class = "form-control", type = "time" })
+        @Html.ValidationMessageFor(model => model.HoraInicio)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.HoraFin)
+        @Html.TextBoxFor(model => model.HoraFin, new { @class = "form-control", type = "time" })
+        @Html.ValidationMessageFor(model => model.HoraFin)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}
+
+<div>
+    <a href="@Url.Action("Index")">Volver a la lista</a>
+</div>

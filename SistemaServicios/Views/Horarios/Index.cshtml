@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SistemaServicios.Models.Horario>
+
+@{
+    ViewData["Title"] = "Horarios";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a href="@Url.Action("Create")">Crear nuevo Horario</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Dia</th>
+            <th>Hora Inicio</th>
+            <th>Hora Fin</th>
+            <th>Técnico</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Dia</td>
+                <td>@item.HoraInicio</td>
+                <td>@item.HoraFin</td>
+                <td>@item.Tecnico.Nombre</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.HorarioId })">Editar</a> |
+                    <a href="@Url.Action("Details", new { id = item.HorarioId })">Detalles</a> |
+                    <a href="@Url.Action("Delete", new { id = item.HorarioId })">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

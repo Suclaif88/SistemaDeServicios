@@ -1,0 +1,32 @@
+﻿@model SistemaServicios.Models.SolicitudServicio
+
+@{
+    ViewData["Title"] = "Eliminar Solicitud de Servicio";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>¿Estás seguro de que deseas eliminar esta solicitud?</h4>
+<hr />
+
+<dl class="dl-horizontal">
+    <dt>Cliente</dt>
+    <dd>@Model.Cliente.Nombre</dd>
+    <dt>Técnico</dt>
+    <dd>@Model.Tecnico.Nombre</dd>
+    <dt>Servicio</dt>
+    <dd>@Model.Servicio.Nombre</dd>
+    <dt>Fecha Solicitud</dt>
+    <dd>@Model.FechaSolicitud.ToString("dd/MM/yyyy")</dd>
+    <dt>Estado</dt>
+    <dd>@Model.Estado</dd>
+    <dt>Comentarios</dt>
+    <dd>@Model.Comentarios</dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancelar</a>
+}

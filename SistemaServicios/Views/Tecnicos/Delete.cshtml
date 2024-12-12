@@ -1,0 +1,26 @@
+﻿@model SistemaServicios.Models.Tecnico
+
+@{
+    ViewData["Title"] = "Eliminar Técnico";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>¿Estás seguro de que deseas eliminar este técnico?</h4>
+<hr />
+
+<dl class="dl-horizontal">
+    <dt>Nombre</dt>
+    <dd>@Model.Nombre</dd>
+    <dt>Especialidad</dt>
+    <dd>@Model.Especialidad</dd>
+    <dt>Teléfono</dt>
+    <dd>@Model.Telefono</dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancelar</a>
+}

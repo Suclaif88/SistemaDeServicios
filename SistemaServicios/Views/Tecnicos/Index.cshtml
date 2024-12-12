@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SistemaServicios.Models.Tecnico>
+
+@{
+    ViewData["Title"] = "Técnicos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a href="@Url.Action("Create")">Crear nuevo técnico</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Teléfono</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Especialidad</td>
+                <td>@item.Telefono</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.TecnicoId })">Editar</a> |
+                    <a href="@Url.Action("Details", new { id = item.TecnicoId })">Detalles</a> |
+                    <a href="@Url.Action("Delete", new { id = item.TecnicoId })">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

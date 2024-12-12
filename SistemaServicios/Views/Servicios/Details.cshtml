@@ -1,0 +1,25 @@
+﻿@model SistemaServicios.Models.Servicio
+
+@{
+    ViewData["Title"] = "Detalles del servicio";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Servicio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Nombre</dt>
+        <dd>@Model.Nombre</dd>
+        <dt>Descripción</dt>
+        <dd>@Model.Descripcion</dd>
+        <dt>Precio</dt>
+        <dd>@Model.Precio.ToString("C")</dd>
+        <dt>Categoría</dt>
+        <dd>@Model.Categoria.Nombre</dd>
+    </dl>
+</div>
+<div>
+    <a href="@Url.Action("Index")">Volver a la lista</a>
+</div>

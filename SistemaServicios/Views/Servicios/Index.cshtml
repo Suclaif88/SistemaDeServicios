@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SistemaServicios.Models.Servicio>
+
+@{
+    ViewData["Title"] = "Servicios";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a href="@Url.Action("Create", "Servicios")" class="btn btn-primary">Crear Nuevo Servicio</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.Descripcion</td>
+                    <td>@item.Precio.ToString("C")</td>
+                    <td>
+                        @(item.Categoria?.Nombre ?? "<span class='text-danger'>Sin Categoría</span>")
+                    </td>
+
+                    <td>
+                        <a href="@Url.Action("Edit", "Servicios", new { id = item.ServicioId })" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="@Url.Action("Details", "Servicios", new { id = item.ServicioId })" class="btn btn-info btn-sm">Detalles</a>
+                        <a href="@Url.Action("Delete", "Servicios", new { id = item.ServicioId })" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">No hay servicios registrados.</td>
+            </tr>
+        }
+    </tbody>
+</table>

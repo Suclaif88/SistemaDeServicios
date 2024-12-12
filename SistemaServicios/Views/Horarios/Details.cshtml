@@ -1,0 +1,25 @@
+﻿@model SistemaServicios.Models.Horario
+
+@{
+    ViewData["Title"] = "Detalles de Horario";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Horario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Dia</dt>
+        <dd>@Model.Dia</dd>
+        <dt>Hora Inicio</dt>
+        <dd>@Model.HoraInicio</dd>
+        <dt>Hora Fin</dt>
+        <dd>@Model.HoraFin</dd>
+        <dt>Técnico</dt>
+        <dd>@Model.Tecnico.Nombre</dd>
+    </dl>
+</div>
+<div>
+    <a href="@Url.Action("Index")">Volver a la lista</a>
+</div>

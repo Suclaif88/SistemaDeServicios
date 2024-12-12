@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SistemaServicios.Models.SolicitudServicio>
+
+@{
+    ViewData["Title"] = "Solicitudes de Servicio";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a href="@Url.Action("Create")">Crear nueva solicitud</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Técnico</th>
+            <th>Servicio</th>
+            <th>Fecha Solicitud</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Cliente.Nombre</td>
+                <td>@item.Tecnico.Nombre</td>
+                <td>@item.Servicio.Nombre</td>
+                <td>@item.FechaSolicitud.ToString("dd/MM/yyyy")</td>
+                <td>@item.Estado</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.SolicitudId })">Editar</a> |
+                    <a href="@Url.Action("Details", new { id = item.SolicitudId })">Detalles</a> |
+                    <a href="@Url.Action("Delete", new { id = item.SolicitudId })">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

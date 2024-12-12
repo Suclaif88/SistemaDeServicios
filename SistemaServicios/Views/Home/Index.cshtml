@@ -1,0 +1,8 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var userName = User.Identity.IsAuthenticated ? User.Identity.Name : "Invitado";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido, Administrador</h1>
+</div>

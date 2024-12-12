@@ -1,0 +1,34 @@
+﻿@model SistemaServicios.Models.Tecnico
+
+@{
+    ViewData["Title"] = "Crear Técnico";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombre)
+        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Nombre)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Especialidad)
+        @Html.TextBoxFor(model => model.Especialidad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Especialidad)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Telefono)
+        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Telefono)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}
+
+<div>
+    <a href="@Url.Action("Index")">Volver a la lista</a>
+</div>
