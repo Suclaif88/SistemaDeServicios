@@ -4,27 +4,50 @@
     ViewData["Title"] = "Detalles de la Solicitud de Servicio";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-<div>
-    <h4>Solicitud de Servicio</h4>
+<div class="details-container">
+    <h4 class="text-center">Solicitud de Servicio</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>Cliente</dt>
-        <dd>@Model.Cliente.Nombre</dd>
-        <dt>Técnico</dt>
-        <dd>@Model.Tecnico.Nombre</dd>
-        <dt>Servicio</dt>
-        <dd>@Model.Servicio.Nombre</dd>
-        <dt>Fecha Solicitud</dt>
-        <dd>@Model.FechaSolicitud.ToString("dd/MM/yyyy")</dd>
-        <dt>Estado</dt>
-        <dd>@Model.Estado</dd>
-        <dt>Comentarios</dt>
-        <dd>@Model.Comentarios</dd>
+    <dl class="row details-list">
+        <dt class="col-sm-4">
+            Cliente
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Cliente.Nombre
+        </dd>
+        <dt class="col-sm-4">
+            Técnico
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Tecnico.Nombre
+        </dd>
+        <dt class="col-sm-4">
+            Servicio
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Servicio.Nombre
+        </dd>
+        <dt class="col-sm-4">
+            Fecha Solicitud
+        </dt>
+        <dd class="col-sm-8">
+            @Model.FechaSolicitud.ToString("dd/MM/yyyy")
+        </dd>
+        <dt class="col-sm-4">
+            Estado
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Estado
+        </dd>
+        <dt class="col-sm-4">
+            Comentarios
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Comentarios
+        </dd>
     </dl>
-</div>
-
-<div>
-    <a href="@Url.Action("Index")">Volver a la lista</a>
+    <div class="text-center">
+        <a href="@Url.Action("Index")" class="custom-btn btn-info">Volver a la lista</a>
+    </div>
 </div>

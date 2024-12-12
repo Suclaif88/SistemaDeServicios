@@ -4,48 +4,51 @@
     ViewData["Title"] = "Crear Nuevo Servicio";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-<div>
-    <h4>Complete los campos para registrar un nuevo servicio</h4>
-    <hr />
+<div class="container">
+    <div class="form-container">
+        <h4 class="text-center">Crear Servicio</h4>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-    <form asp-action="Create" method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="control-label">Nombre</label>
+                        <input asp-for="Nombre" class="form-control custom-input" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
 
-        <div class="form-group">
-            <label asp-for="Nombre" class="control-label">Nombre</label>
-            <input asp-for="Nombre" class="form-control" />
-            <span asp-validation-for="Nombre" class="text-danger"></span>
+                    <div class="form-group">
+                        <label asp-for="Descripcion" class="control-label">Descripción</label>
+                        <textarea asp-for="Descripcion" class="form-control custom-input"></textarea>
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Precio" class="control-label">Precio</label>
+                        <input asp-for="Precio" class="form-control custom-input" />
+                        <span asp-validation-for="Precio" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="CategoriaId" class="control-label">Categoría</label>
+                        <select asp-for="CategoriaId" class="form-control custom-input" asp-items="ViewBag.CategoriaId">
+                            <option value="">Seleccione una categoría</option>
+                        </select>
+                        <span asp-validation-for="CategoriaId" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="custom-btn btn-green">Guardar Servicio</button>
+                        <a asp-action="Index" class="custom-btn btn-info">Cancelar y Volver</a>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div class="form-group">
-            <label asp-for="Descripcion" class="control-label">Descripción</label>
-            <textarea asp-for="Descripcion" class="form-control"></textarea>
-            <span asp-validation-for="Descripcion" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Precio" class="control-label">Precio</label>
-            <input asp-for="Precio" class="form-control" />
-            <span asp-validation-for="Precio" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="CategoriaId" class="control-label">Categoría</label>
-            <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId">
-                <option value="">Seleccione una categoría</option>
-            </select>
-            <span asp-validation-for="CategoriaId" class="text-danger"></span>
-        </div>
-
-
-
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Guardar Servicio</button>
-            <a asp-action="Index" class="btn btn-secondary">Cancelar y Volver</a>
-        </div>
-    </form>
+    </div>
 </div>
 
 @section Scripts {

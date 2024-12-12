@@ -4,20 +4,20 @@
     ViewData["Title"] = "Servicios";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center mt-4" style="color: white;">@ViewData["Title"]</h1>
 
-<p>
-    <a href="@Url.Action("Create", "Servicios")" class="btn btn-primary">Crear Nuevo Servicio</a>
+<p class="text-end">
+    <a class="custom-btn btn-green" asp-action="Create">Crear Nuevo Servicio</a>
 </p>
 
-<table class="table table-bordered table-striped">
+<table class="table custom-table">
     <thead class="thead-dark">
         <tr>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Precio</th>
-            <th>Categoría</th>
-            <th>Acciones</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Descripción</th>
+            <th class="text-center">Precio</th>
+            <th class="text-center">Categoría</th>
+            <th class="text-center">Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -26,17 +26,16 @@
             foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.Nombre</td>
-                    <td>@item.Descripcion</td>
-                    <td>@item.Precio.ToString("C")</td>
-                    <td>
+                    <td class="text-left">@item.Nombre</td>
+                    <td class="text-left">@item.Descripcion</td>
+                    <td class="text-left">@item.Precio.ToString("C")</td>
+                    <td class="text-left">
                         @(item.Categoria?.Nombre ?? "<span class='text-danger'>Sin Categoría</span>")
                     </td>
-
-                    <td>
-                        <a href="@Url.Action("Edit", "Servicios", new { id = item.ServicioId })" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="@Url.Action("Details", "Servicios", new { id = item.ServicioId })" class="btn btn-info btn-sm">Detalles</a>
-                        <a href="@Url.Action("Delete", "Servicios", new { id = item.ServicioId })" class="btn btn-danger btn-sm">Eliminar</a>
+                    <td class="text-center">
+                        <a class="custom-btn btn-orange" asp-action="Edit" asp-route-id="@item.ServicioId">Editar</a>
+                        <a class="custom-btn btn-info" asp-action="Details" asp-route-id="@item.ServicioId">Detalles</a>
+                        <a class="custom-btn btn-danger" asp-action="Delete" asp-route-id="@item.ServicioId">Eliminar</a>
                     </td>
                 </tr>
             }

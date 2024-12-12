@@ -7985,11 +7985,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sebaq\\OneDrive\\Escritorio\\SistemaServicios\\SistemaServicios\\SistemaServicios\\SistemaServicios.csproj",
+      "projectUniqueName": "C:\\Users\\sebaq\\OneDrive\\Escritorio\\SistemaDeServicios\\SistemaServicios\\SistemaServicios\\SistemaServicios.csproj",
       "projectName": "SistemaServicios",
-      "projectPath": "C:\\Users\\sebaq\\OneDrive\\Escritorio\\SistemaServicios\\SistemaServicios\\SistemaServicios\\SistemaServicios.csproj",
+      "projectPath": "C:\\Users\\sebaq\\OneDrive\\Escritorio\\SistemaDeServicios\\SistemaServicios\\SistemaServicios\\SistemaServicios.csproj",
       "packagesPath": "C:\\Users\\sebaq\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sebaq\\OneDrive\\Escritorio\\SistemaServicios\\SistemaServicios\\SistemaServicios\\obj\\",
+      "outputPath": "C:\\Users\\sebaq\\OneDrive\\Escritorio\\SistemaDeServicios\\SistemaServicios\\SistemaServicios\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

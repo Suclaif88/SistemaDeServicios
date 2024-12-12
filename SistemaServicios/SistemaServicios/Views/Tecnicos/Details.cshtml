@@ -4,21 +4,32 @@
     ViewData["Title"] = "Detalles del Técnico";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-<div>
-    <h4>Técnico</h4>
+<div class="details-container">
+    <h4 class="text-center">Técnico</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>Nombre</dt>
-        <dd>@Model.Nombre</dd>
-        <dt>Especialidad</dt>
-        <dd>@Model.Especialidad</dd>
-        <dt>Teléfono</dt>
-        <dd>@Model.Telefono</dd>
+    <dl class="row details-list">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Especialidad)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Especialidad)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
     </dl>
-</div>
-
-<div>
-    <a href="@Url.Action("Index")">Volver a la lista</a>
+    <div class="text-center">
+        <a asp-action="Index" class="custom-btn btn-info">Volver a la lista</a>
+    </div>
 </div>

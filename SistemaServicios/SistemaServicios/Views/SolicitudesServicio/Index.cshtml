@@ -4,36 +4,36 @@
     ViewData["Title"] = "Solicitudes de Servicio";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center mt-4" style="color: white;">@ViewData["Title"]</h1>
 
-<p>
-    <a href="@Url.Action("Create")">Crear nueva solicitud</a>
+<p class="text-end">
+    <a class="custom-btn btn-green" href="@Url.Action("Create")">Crear nueva solicitud</a>
 </p>
 
-<table class="table">
+<table class="table custom-table">
     <thead>
         <tr>
-            <th>Cliente</th>
-            <th>Técnico</th>
-            <th>Servicio</th>
-            <th>Fecha Solicitud</th>
-            <th>Estado</th>
-            <th></th>
+            <th class="text-center">Cliente</th>
+            <th class="text-center">Técnico</th>
+            <th class="text-center">Servicio</th>
+            <th class="text-center">Fecha Solicitud</th>
+            <th class="text-center">Estado</th>
+            <th class="text-center">Acciones</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Cliente.Nombre</td>
-                <td>@item.Tecnico.Nombre</td>
-                <td>@item.Servicio.Nombre</td>
-                <td>@item.FechaSolicitud.ToString("dd/MM/yyyy")</td>
-                <td>@item.Estado</td>
-                <td>
-                    <a href="@Url.Action("Edit", new { id = item.SolicitudId })">Editar</a> |
-                    <a href="@Url.Action("Details", new { id = item.SolicitudId })">Detalles</a> |
-                    <a href="@Url.Action("Delete", new { id = item.SolicitudId })">Eliminar</a>
+                <td class="text-left">@item.Cliente.Nombre</td>
+                <td class="text-left">@item.Tecnico.Nombre</td>
+                <td class="text-left">@item.Servicio.Nombre</td>
+                <td class="text-left">@item.FechaSolicitud.ToString("dd/MM/yyyy")</td>
+                <td class="text-left">@item.Estado</td>
+                <td class="text-center">
+                    <a class="custom-btn btn-orange" href="@Url.Action("Edit", new { id = item.SolicitudId })">Editar</a>
+                    <a class="custom-btn btn-info" href="@Url.Action("Details", new { id = item.SolicitudId })">Detalles</a>
+                    <a class="custom-btn btn-danger" href="@Url.Action("Delete", new { id = item.SolicitudId })">Eliminar</a>
                 </td>
             </tr>
         }

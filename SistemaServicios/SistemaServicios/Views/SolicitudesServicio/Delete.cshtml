@@ -4,29 +4,57 @@
     ViewData["Title"] = "Eliminar Solicitud de Servicio";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-<h4>¿Estás seguro de que deseas eliminar esta solicitud?</h4>
-<hr />
+<div class="delete-container">
+    <h3 class="text-center text-warning">¿Estás seguro de que deseas eliminar esta solicitud?</h3>
+    <h4 class="text-center">Solicitud de Servicio</h4>
+    <hr />
+    <dl class="row details-list">
+        <dt class="col-sm-4">
+            Cliente
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Cliente.Nombre
+        </dd>
+        <dt class="col-sm-4">
+            Técnico
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Tecnico.Nombre
+        </dd>
+        <dt class="col-sm-4">
+            Servicio
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Servicio.Nombre
+        </dd>
+        <dt class="col-sm-4">
+            Fecha Solicitud
+        </dt>
+        <dd class="col-sm-8">
+            @Model.FechaSolicitud.ToString("dd/MM/yyyy")
+        </dd>
+        <dt class="col-sm-4">
+            Estado
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Estado
+        </dd>
+        <dt class="col-sm-4">
+            Comentarios
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Comentarios
+        </dd>
+    </dl>
 
-<dl class="dl-horizontal">
-    <dt>Cliente</dt>
-    <dd>@Model.Cliente.Nombre</dd>
-    <dt>Técnico</dt>
-    <dd>@Model.Tecnico.Nombre</dd>
-    <dt>Servicio</dt>
-    <dd>@Model.Servicio.Nombre</dd>
-    <dt>Fecha Solicitud</dt>
-    <dd>@Model.FechaSolicitud.ToString("dd/MM/yyyy")</dd>
-    <dt>Estado</dt>
-    <dd>@Model.Estado</dd>
-    <dt>Comentarios</dt>
-    <dd>@Model.Comentarios</dd>
-</dl>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-danger">Eliminar</button>
-    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancelar</a>
-}
+    <div class="text-center">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <button type="submit" class="custom-btn btn-danger">Eliminar</button>
+            <a href="@Url.Action("Index")" class="custom-btn btn-info">Cancelar</a>
+        }
+    </div>
+</div>

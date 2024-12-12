@@ -4,26 +4,39 @@
     ViewData["Title"] = "Crear Categoría de Servicio";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center" style="color: white;">@ViewData["Title"]</h1>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<div class="form-container">
+    <h4 class="text-center">Crear Categoría de Servicio</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Nombre)
-        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control custom-input" })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control custom-input" })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="custom-btn btn-primary">Guardar</button>
+                    <a href="@Url.Action("Index", "CategoriasServicios")" class="custom-btn btn-info">Regresar</a>
+                </div>
+            }
+        </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Descripcion)
-        @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
-    </div>
-
-    <button type="submit" class="btn btn-primary">Guardar</button>
-}
-
-<div>
-    <a href="@Url.Action("Index", "CategoriasServicios")" class="btn btn-secondary">Volver a la lista</a>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Mvc;
 using SistemaServicios.Data;
 using SistemaServicios.Models;
@@ -34,7 +35,6 @@ namespace SistemaServicios.Controllers
 
             if (usuario != null)
             {
-                // Autenticar al usuario
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -59,7 +59,6 @@ namespace SistemaServicios.Controllers
 
                 if (usuarioExistente == null)
                 {
-                    // Encriptar la contraseña
                     var contrasenaEncriptada = Convert.ToBase64String(KeyDerivation.Pbkdf2(
                         password: modelo.Contrasena,
                         salt: System.Text.Encoding.ASCII.GetBytes("salt"),
@@ -82,6 +81,13 @@ namespace SistemaServicios.Controllers
             }
 
             return View(modelo);
+        }
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync();
+            return RedirectToAction("Login", "Acceso");
         }
     }
 }

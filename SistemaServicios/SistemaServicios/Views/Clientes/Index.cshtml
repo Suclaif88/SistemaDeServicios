@@ -4,50 +4,52 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="text-center mt-4" style="color: white;">Clientes</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="text-end">
+    <a class="custom-btn btn-green" asp-action="Create">Crear Nuevo</a>
 </p>
-<table class="table">
+
+<table class="table custom-table">
     <thead>
         <tr>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Direccion)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Telefono)
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.Documento)
             </th>
-            <th></th>
+            <th class="text-center">Acciones</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Direccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Documento)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ClienteId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ClienteId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ClienteId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-left">
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td class="text-left">
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td class="text-left">
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td class="text-left">
+                    @Html.DisplayFor(modelItem => item.Documento)
+                </td>
+                <td class="text-center">
+                    <a class="custom-btn btn-orange" asp-action="Edit" asp-route-id="@item.ClienteId">Editar</a>
+                    <a class="custom-btn btn-info" asp-action="Details" asp-route-id="@item.ClienteId">Detalles</a>
+                    <a class="custom-btn btn-danger" asp-action="Delete" asp-route-id="@item.ClienteId">Eliminar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -4,32 +4,44 @@
     ViewData["Title"] = "Técnicos";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center mt-4" style="color: white;">@ViewData["Title"]</h1>
 
-<p>
-    <a href="@Url.Action("Create")">Crear nuevo técnico</a>
+<p class="text-end">
+    <a class="custom-btn btn-green" href="@Url.Action("Create")">Crear nuevo técnico</a>
 </p>
 
-<table class="table">
+<table class="table custom-table">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Especialidad</th>
-            <th>Teléfono</th>
-            <th></th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Especialidad)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th class="text-center">Acciones</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Nombre</td>
-                <td>@item.Especialidad</td>
-                <td>@item.Telefono</td>
-                <td>
-                    <a href="@Url.Action("Edit", new { id = item.TecnicoId })">Editar</a> |
-                    <a href="@Url.Action("Details", new { id = item.TecnicoId })">Detalles</a> |
-                    <a href="@Url.Action("Delete", new { id = item.TecnicoId })">Eliminar</a>
+                <td class="text-left">
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td class="text-left">
+                    @Html.DisplayFor(modelItem => item.Especialidad)
+                </td>
+                <td class="text-left">
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td class="text-center">
+                    <a class="custom-btn btn-orange" href="@Url.Action("Edit", new { id = item.TecnicoId })">Editar</a>
+                    <a class="custom-btn btn-info" href="@Url.Action("Details", new { id = item.TecnicoId })">Detalles</a>
+                    <a class="custom-btn btn-danger" href="@Url.Action("Delete", new { id = item.TecnicoId })">Eliminar</a>
                 </td>
             </tr>
         }

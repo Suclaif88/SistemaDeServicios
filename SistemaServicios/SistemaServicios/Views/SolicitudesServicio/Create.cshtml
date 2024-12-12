@@ -4,51 +4,54 @@
     ViewData["Title"] = "Crear Solicitud de Servicio";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<div class="form-container">
+    <h4 class="text-center">Crear Solicitud de Servicio</h4>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ClienteId)
-        @Html.DropDownListFor(model => model.ClienteId, (SelectList)ViewData["ClienteId"], "Seleccionar cliente", new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.ClienteId, "", new { @class = "text-danger" })
-    </div>
+        <div class="form-group">
+            <label asp-for="ClienteId" class="control-label"></label>
+            @Html.DropDownListFor(model => model.ClienteId, (SelectList)ViewData["ClienteId"], "Seleccionar cliente", new { @class = "form-control custom-input" })
+            @Html.ValidationMessageFor(model => model.ClienteId, "", new { @class = "text-danger" })
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.TecnicoId)
-        @Html.DropDownListFor(model => model.TecnicoId, (SelectList)ViewData["TecnicoId"], "Seleccionar técnico", new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.TecnicoId, "", new { @class = "text-danger" })
-    </div>
+        <div class="form-group">
+            <label asp-for="TecnicoId" class="control-label"></label>
+            @Html.DropDownListFor(model => model.TecnicoId, (SelectList)ViewData["TecnicoId"], "Seleccionar técnico", new { @class = "form-control custom-input" })
+            @Html.ValidationMessageFor(model => model.TecnicoId, "", new { @class = "text-danger" })
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ServicioId)
-        @Html.DropDownListFor(model => model.ServicioId, (SelectList)ViewData["ServicioId"], "Seleccionar servicio", new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.ServicioId, "", new { @class = "text-danger" })
-    </div>
+        <div class="form-group">
+            <label asp-for="ServicioId" class="control-label"></label>
+            @Html.DropDownListFor(model => model.ServicioId, (SelectList)ViewData["ServicioId"], "Seleccionar servicio", new { @class = "form-control custom-input" })
+            @Html.ValidationMessageFor(model => model.ServicioId, "", new { @class = "text-danger" })
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.FechaSolicitud)
-        @Html.TextBoxFor(model => model.FechaSolicitud, new { @class = "form-control", type = "date" })
-        @Html.ValidationMessageFor(model => model.FechaSolicitud, "", new { @class = "text-danger" })
-    </div>
+        <div class="form-group">
+            <label asp-for="FechaSolicitud" class="control-label"></label>
+            @Html.TextBoxFor(model => model.FechaSolicitud, new { @class = "form-control custom-input", type = "date" })
+            @Html.ValidationMessageFor(model => model.FechaSolicitud, "", new { @class = "text-danger" })
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Estado)
-        @Html.DropDownListFor(model => model.Estado, new SelectList(new[] { "Pendiente", "Completado" }), "Seleccionar estado", new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
-    </div>
+        <div class="form-group">
+            <label asp-for="Estado" class="control-label"></label>
+            @Html.DropDownListFor(model => model.Estado, new SelectList(new[] { "Pendiente", "Completado" }), "Seleccionar estado", new { @class = "form-control custom-input" })
+            @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Comentarios)
-        @Html.TextAreaFor(model => model.Comentarios, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
-    </div>
+        <div class="form-group">
+            <label asp-for="Comentarios" class="control-label"></label>
+            @Html.TextAreaFor(model => model.Comentarios, new { @class = "form-control custom-input" })
+            @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
+        </div>
 
-    <button type="submit" class="btn btn-primary">Guardar</button>
-}
-
-<div>
-    <a href="@Url.Action("Index")">Volver a la lista</a>
+        <div class="text-center">
+            <button type="submit" class="custom-btn btn-green">Guardar</button>
+            <a href="@Url.Action("Index")" class="custom-btn btn-info">Cancelar</a>
+        </div>
+    }
 </div>

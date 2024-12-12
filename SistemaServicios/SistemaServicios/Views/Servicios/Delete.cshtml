@@ -4,25 +4,45 @@
     ViewData["Title"] = "Eliminar Servicio";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-<h4>¿Estás seguro de que deseas eliminar este servicio?</h4>
-<hr />
+<div class="delete-container">
+    <h3 class="text-center text-warning">¿Estás seguro de que deseas eliminar este servicio?</h3>
+    <h4 class="text-center">Servicio</h4>
+    <hr />
+    <dl class="row details-list">
+        <dt class="col-sm-4">
+            Nombre
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Nombre
+        </dd>
+        <dt class="col-sm-4">
+            Descripción
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Descripcion
+        </dd>
+        <dt class="col-sm-4">
+            Precio
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Precio.ToString("C")
+        </dd>
+        <dt class="col-sm-4">
+            Categoría
+        </dt>
+        <dd class="col-sm-8">
+            @Model.Categoria.Nombre
+        </dd>
+    </dl>
 
-<dl class="dl-horizontal">
-    <dt>Nombre</dt>
-    <dd>@Model.Nombre</dd>
-    <dt>Descripción</dt>
-    <dd>@Model.Descripcion</dd>
-    <dt>Precio</dt>
-    <dd>@Model.Precio.ToString("C")</dd>
-    <dt>Categoría</dt>
-    <dd>@Model.Categoria.Nombre</dd>
-</dl>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-danger">Eliminar</button>
-    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancelar</a>
-}
+    <div class="text-center">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <button type="submit" class="custom-btn btn-danger">Eliminar</button>
+            <a href="@Url.Action("Index")" class="custom-btn btn-info">Cancelar</a>
+        }
+    </div>
+</div>

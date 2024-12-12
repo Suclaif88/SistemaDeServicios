@@ -1,12 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\sebaq\\OneDrive\\Escritorio\\SistemaServicios\\SistemaServicios\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{506ED0A2-04B9-4764-85DD-91A62FF3EA0F}|SistemaServicios\\SistemaServicios.csproj|c:\\users\\sebaq\\onedrive\\escritorio\\sistemaservicios\\sistemaservicios\\sistemaservicios\\controllers\\solicitudesserviciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{506ED0A2-04B9-4764-85DD-91A62FF3EA0F}|SistemaServicios\\SistemaServicios.csproj|solutionrelative:sistemaservicios\\controllers\\solicitudesserviciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\sebaq\\OneDrive\\Escritorio\\SistemaDeServicios\\SistemaServicios\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,24 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SolicitudesServicioController.cs",
-              "DocumentMoniker": "C:\\Users\\sebaq\\OneDrive\\Escritorio\\SistemaServicios\\SistemaServicios\\SistemaServicios\\Controllers\\SolicitudesServicioController.cs",
-              "RelativeDocumentMoniker": "SistemaServicios\\Controllers\\SolicitudesServicioController.cs",
-              "ToolTip": "C:\\Users\\sebaq\\OneDrive\\Escritorio\\SistemaServicios\\SistemaServicios\\SistemaServicios\\Controllers\\SolicitudesServicioController.cs",
-              "RelativeToolTip": "SistemaServicios\\Controllers\\SolicitudesServicioController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T09:03:48.862Z",
-              "EditorCaption": ""
             }
           ]
         }

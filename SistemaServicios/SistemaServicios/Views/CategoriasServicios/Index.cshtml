@@ -4,18 +4,22 @@
     ViewData["Title"] = "Categorías de Servicios";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center mt-4" style="color: white;">@ViewData["Title"]</h1>
 
-<p>
-    <a href="@Url.Action("Create", "CategoriasServicios")" class="btn btn-primary">Nueva Categoría</a>
+<p class="text-end">
+    <a class="custom-btn btn-green" asp-action="Create" asp-controller="CategoriasServicios">Crear Nueva Categoría</a>
 </p>
 
-<table class="table table-bordered">
+<table class="table custom-table">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th style="width: 200px;">Acciones</th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th class="text-center" style="width: 200px;">Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -24,11 +28,16 @@
             foreach (var categoria in Model)
             {
                 <tr>
-                    <td>@categoria.Nombre</td>
-                    <td>@categoria.Descripcion</td>
-                    <td>
-                        <a href="@Url.Action("Edit", "CategoriasServicios", new { id = categoria.CategoriaId })" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="@Url.Action("Delete", "CategoriasServicios", new { id = categoria.CategoriaId })" class="btn btn-danger btn-sm">Eliminar</a>
+                    <td class="text-left">
+                        @categoria.Nombre
+                    </td>
+                    <td class="text-left">
+                        @categoria.Descripcion
+                    </td>
+                    <td class="text-center">
+                        <a class="custom-btn btn-orange" asp-action="Edit" asp-route-id="@categoria.CategoriaId">Editar</a>
+                        @* <a class="custom-btn btn-info" asp-action="Details" asp-route-id="@categoria.CategoriaId">Detalles</a> *@
+                        <a class="custom-btn btn-danger" asp-action="Delete" asp-route-id="@categoria.CategoriaId">Eliminar</a>
                     </td>
                 </tr>
             }

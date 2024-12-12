@@ -4,31 +4,38 @@
     ViewData["Title"] = "Crear Técnico";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<div class="form-container">
+    <h4 class="text-center">Crear Técnico</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Nombre)
-        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Nombre)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Especialidad, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Especialidad, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Especialidad, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Telefono, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="custom-btn btn-primary">Guardar</button>
+                    <a href="@Url.Action("Index")" class="custom-btn btn-info">Volver a la lista</a>
+                </div>
+            }
+        </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Especialidad)
-        @Html.TextBoxFor(model => model.Especialidad, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Especialidad)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Telefono)
-        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Telefono)
-    </div>
-
-    <button type="submit" class="btn btn-primary">Guardar</button>
-}
-
-<div>
-    <a href="@Url.Action("Index")">Volver a la lista</a>
 </div>
