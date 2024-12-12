@@ -117,7 +117,7 @@ namespace SistemaServicios.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServicioId"));
 
-                    b.Property<int>("CategoriaId")
+                    b.Property<int?>("CategoriaId")
                         .HasColumnType("int");
 
                     b.Property<string>("Descripcion")
@@ -147,12 +147,13 @@ namespace SistemaServicios.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SolicitudId"));
 
-                    b.Property<int>("ClienteId")
+                    b.Property<int?>("ClienteId")
                         .HasColumnType("int");
 
                     b.Property<string>("Comentarios")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Estado")
                         .IsRequired()
@@ -162,10 +163,10 @@ namespace SistemaServicios.Migrations
                     b.Property<DateTime>("FechaSolicitud")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ServicioId")
+                    b.Property<int?>("ServicioId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TecnicoId")
+                    b.Property<int?>("TecnicoId")
                         .HasColumnType("int");
 
                     b.HasKey("SolicitudId");
@@ -253,9 +254,7 @@ namespace SistemaServicios.Migrations
                 {
                     b.HasOne("SistemaServicios.Models.CategoriaServicio", "Categoria")
                         .WithMany()
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoriaId");
 
                     b.Navigation("Categoria");
                 });
@@ -264,21 +263,15 @@ namespace SistemaServicios.Migrations
                 {
                     b.HasOne("SistemaServicios.Models.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClienteId");
 
                     b.HasOne("SistemaServicios.Models.Servicio", "Servicio")
                         .WithMany()
-                        .HasForeignKey("ServicioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ServicioId");
 
                     b.HasOne("SistemaServicios.Models.Tecnico", "Tecnico")
                         .WithMany()
-                        .HasForeignKey("TecnicoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TecnicoId");
 
                     b.Navigation("Cliente");
 
